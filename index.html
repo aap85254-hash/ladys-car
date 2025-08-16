@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ladys car - Viaja a cualquier lugar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Uber+Move+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos CSS de clon 1.html */
+        @import url('https://fonts.googleapis.com/css2?family=Uber+Move+Text:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Uber Move Text', Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            transition: background-color 0.5s, color 0.5s; /* Transición para un efecto más suave */
+        }
+
+        /* Tema rosa para la "siguiente página" */
+        body.pink-theme {
+            background-color: #FF1493; /* Tono rosa vibrante */
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.5s;
+        }
+
+        body.pink-theme a {
+            color: #fff;
+        }
+
+        body.pink-theme .nav-left li a:hover,
+        body.pink-theme .nav-right li a:hover {
+            color: #e2e2e2;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            border-bottom: 1px solid #e2e2e2;
+            padding: 0 40px;
+            height: 72px;
+            transition: background-color 0.5s, border-bottom 0.5s;
+        }
+
+        body.pink-theme header {
+            background-color: #FF1493;
+            border-bottom: 1px solid #ff66a3;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left ul,
+        .nav-right ul {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 32px;
+        }
+
+        .nav-left li a,
+        .nav-right li a {
+            font-weight: 500;
+            font-size: 14px;
+            padding: 24px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-left li a:hover {
+            color: #6d6d6d;
+        }
+
+        .btn-registro {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px; /* Cambiado a 8px para hacerlo cuadrado */
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-registro:hover {
+            background-color: #333;
+        }
+
+        body.pink-theme .btn-registro {
+            background-color: #fff;
+            color: #FF1493;
+        }
+
+        body.pink-theme .btn-registro:hover {
+            background-color: #e2e2e2;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 40px;
+            gap: 80px;
+            transition: background-color 0.5s;
+        }
+
+        .left-section {
+            max-width: 500px;
+        }
+
+        .main-title {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .search-form-container {
+            background-color: #f6f6f6;
+            padding: 24px;
+            border-radius: 8px;
+            transition: background-color 0.5s;
+        }
+
+        body.pink-theme .search-form-container {
+            background-color: #ff66a3;
+        }
+
+        .tab-options {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .tab-options span {
+            font-weight: bold;
+            color: #6d6d6d;
+            cursor: pointer;
+        }
+
+        .tab-options .active {
+            color: #000;
+        }
+
+        body.pink-theme .tab-options span {
+            color: #fff;
+        }
+
+        body.pink-theme .tab-options .active {
+            color: #000;
+        }
+
+        .search-form .input-group {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .search-form input {
+            width: 100%;
+            padding: 12px 12px 12px 36px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        .search-form input::placeholder {
+            color: #6d6d6d;
+        }
+
+        .search-form .start-icon {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            font-size: 8px;
+        }
+
+        .search-form .input-group:first-child .start-icon {
+            color: #000;
+        }
+
+        body.pink-theme .search-form .input-group:first-child .start-icon {
+            color: #FF1493;
+        }
+
+        .search-form .input-group:nth-child(2) .start-icon {
+            color: #6d6d6d;
+        }
+
+        body.pink-theme .search-form .input-group:nth-child(2) .start-icon {
+            color: #fff;
+        }
+
+        .search-form .end-icon {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%) rotate(-45deg);
+            color: #6d6d6d;
+            cursor: pointer;
+        }
+
+        body.pink-theme .search-form .end-icon {
+            color: #fff;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .input-group-half {
+            flex: 1;
+            position: relative;
+        }
+
+        .input-group-half input {
+            width: 100%;
+            padding: 12px 12px 12px 36px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        .input-group-half i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #6d6d6d;
+        }
+
+        body.pink-theme .input-group-half i {
+            color: #FF1493;
+        }
+
+        .input-group-half span {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .input-group-half .fa-chevron-down {
+            left: auto;
+            right: 12px;
+            font-size: 12px;
+        }
+
+        .btn-ver-precios {
+            width: 100%;
+            padding: 16px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-ver-precios:hover {
+            background-color: #333;
+        }
+
+        .login-link {
+            font-size: 14px;
+            margin-top: 16px;
+            text-align: center;
+            color: #6d6d6d;
+        }
+
+        .right-section {
+            flex-shrink: 0;
+            position: relative;
+            width: 600px;
+            height: 400px;
+        }
+        
+        #map, #image-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Estilos CSS de mapa.html */
+        .map-section {
+            width: 600px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Corrección: El iframe necesita su propio estilo para llenar el contenedor */
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="#" class="logo">ladys car</a>
+                <ul>
+                    <li><a href="#">Viaja</a></li>
+                    <li><a href="#">Conduce</a></li>
+                    <li><a href="#">Empresas</a></li>
+                    <li><a href="#">Mas servicios</a></li>
+                    <li class="dropdown">
+                        <a href="#">Quiénes somos <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#"><i class="fas fa-globe"></i> ES</a></li>
+                    <li><a href="clon 1.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                    <li><a href="#">Inicia sesión</a></li>
+                    <li><a href="#" class="btn-registro">Regístrate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <div class="left-section">
+            <h1 class="main-title">Viaja a cualquier lugar con Nuestra App</h1>
+            <div class="search-form-container">
+                <div class="tab-options">
+                    <span class="active">Explora Veracruz</span>
+                    <span>Cambia de ciudad <i class="fas fa-times-circle"></i></span>
+                </div>
+                <form class="search-form" id="ride-form">
+                    <div class="input-group">
+                        <i class="fas fa-circle start-icon"></i>
+                        <input type="text" id="start" placeholder="Punto de partida">
+                        <i class="fas fa-location-arrow end-icon"></i>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-square-full start-icon"></i>
+                        <input type="text" id="end" placeholder="Destino">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group-half">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="text" placeholder="Fecha">
+                            <span>Hoy</span>
+                        </div>
+                        <div class="input-group-half">
+                            <i class="fas fa-clock"></i>
+                            <input type="text" placeholder="Hora">
+                            <span>Ahora</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-ver-precios" onclick="cambiarImagen()">Ver precios</button>
+                    </form>
+                <p class="login-link">Inicia sesión para ver tu actividad reciente</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="map-section" id="mapa">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.7359280400747!2d-99.13320828509385!3d19.432607186887885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92e0c6aa8a7%3A0xa06d2e1b5d4fbb7d!2sCiudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1674682160466!5m2!1ses!2smx" 
+        allowfullscreen="" loading="lazy">
+              </iframe>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function cambiarImagen() {
+            // Añade la clase 'pink-theme' al cuerpo del documento
+            document.body.classList.add('pink-theme');
+            document.getElementById("mapa").innerHTML = 
+              '<img src="u.png" alt="Resultado precios" style="width: 100%; height: 100%; object-fit: cover;">';
+        }
+    </script>
+</body>
+</html>
