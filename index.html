@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Uber+Move+Text:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilos CSS de clon 1.html */
+        /* Estilos CSS base (desktop) */
         @import url('https://fonts.googleapis.com/css2?family=Uber+Move+Text:wght@400;700&display=swap');
 
         * {
@@ -20,12 +20,11 @@
             font-family: 'Uber Move Text', Arial, sans-serif;
             background-color: #fff;
             color: #000;
-            transition: background-color 0.5s, color 0.5s; /* Transición para un efecto más suave */
+            transition: background-color 0.5s, color 0.5s;
         }
 
-        /* Tema rosa para la "siguiente página" */
         body.pink-theme {
-            background-color: #FF1493; /* Tono rosa vibrante */
+            background-color: #FF1493;
             color: #fff;
         }
 
@@ -104,7 +103,7 @@
             background-color: #000;
             color: #fff;
             padding: 8px 16px;
-            border-radius: 8px; /* Cambiado a 8px para hacerlo cuadrado */
+            border-radius: 8px;
             font-weight: 600;
             transition: background-color 0.3s;
         }
@@ -122,6 +121,7 @@
             background-color: #e2e2e2;
         }
 
+        /* Desktop Layout */
         .content-container {
             display: flex;
             justify-content: center;
@@ -324,7 +324,6 @@
             border-radius: 8px;
         }
 
-        /* Estilos CSS de mapa.html */
         .map-section {
             width: 600px;
             height: 400px;
@@ -334,11 +333,61 @@
             margin-bottom: 20px;
         }
 
-        /* Corrección: El iframe necesita su propio estilo para llenar el contenedor */
         .map-section iframe {
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        /* Estilos para dispositivos móviles (Android) */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            .nav-left ul {
+                display: none; /* Oculta el menú de navegación para ahorrar espacio */
+            }
+
+            .nav-right li:not(:last-child) {
+                display: none; /* Oculta los enlaces de Ayuda e Idioma */
+            }
+
+            .logo {
+                margin-right: 0;
+            }
+
+            .content-container {
+                flex-direction: column; /* Apila los elementos verticalmente */
+                padding: 40px 20px;
+                gap: 40px;
+            }
+
+            .left-section, .right-section {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .main-title {
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .search-form-container {
+                padding: 16px;
+            }
+
+            .map-section {
+                width: 100%;
+                height: 250px; /* Reducir la altura del mapa para móvil */
+            }
+
+            .input-row {
+                flex-direction: column; /* Apila los inputs de fecha y hora */
+                gap: 16px;
+            }
         }
     </style>
 </head>
@@ -362,7 +411,7 @@
             <div class="nav-right">
                 <ul>
                     <li><a href="#"><i class="fas fa-globe"></i> ES</a></li>
-                    <li><a href="clon 1.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                    <li><a href="index.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
                     <li><a href="#">Inicia sesión</a></li>
                     <li><a href="#" class="btn-registro">Regístrate</a></li>
                 </ul>
@@ -410,7 +459,7 @@
             <div class="map-section" id="mapa">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.7359280400747!2d-99.13320828509385!3d19.432607186887885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92e0c6aa8a7%3A0xa06d2e1b5d4fbb7d!2sCiudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1674682160466!5m2!1ses!2smx" 
-        allowfullscreen="" loading="lazy">
+                allowfullscreen="" loading="lazy">
               </iframe>
             </div>
         </div>
@@ -418,7 +467,6 @@
 
     <script>
         function cambiarImagen() {
-            // Añade la clase 'pink-theme' al cuerpo del documento
             document.body.classList.add('pink-theme');
             document.getElementById("mapa").innerHTML = 
               '<img src="u.png" alt="Resultado precios" style="width: 100%; height: 100%; object-fit: cover;">';
